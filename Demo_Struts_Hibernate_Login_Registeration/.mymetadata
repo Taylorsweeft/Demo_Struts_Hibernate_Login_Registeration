@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="Demo_Struts_Hibernate_Login_Registeration"
+  id="myeclipse.1471517686397"
+  context-root="/Demo_shlr"
+  j2ee-spec="5.0"
+  archive="Demo_Struts_Hibernate_Login_Registeration.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

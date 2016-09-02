@@ -55,4 +55,8 @@ public class User {
 		this.eMail = eMail;
 	}
 
+	public User() {
+		super();
+	}
+
 }

@@ -7,5 +7,5 @@ public interface Userdao {
 
 	public boolean userExit(String username);
 
-	public void login(User u);
+	public boolean login(User u);
 }

@@ -25,7 +25,7 @@
 		用户名：<input type="text" name="username"><br> 
 		密码：    <input type="password" name="password"><br> 
 		<input type="submit" value="提交" />
-		<a href="register"><input type="button" value ="注册"/></a>
+		<a href="registerpage"><input type="button" value ="注册"/></a>
 		</form>
 	</center>
 	

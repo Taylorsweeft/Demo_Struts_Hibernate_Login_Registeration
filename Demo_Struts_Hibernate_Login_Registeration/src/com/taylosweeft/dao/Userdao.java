@@ -5,7 +5,7 @@ import com.taylosweeft.model.User;
 public interface Userdao {
 	public void addUser(User u);
 
-	public boolean userExit(String username);
+	public boolean userExit(User u);
 
 	public boolean login(User u);
 }

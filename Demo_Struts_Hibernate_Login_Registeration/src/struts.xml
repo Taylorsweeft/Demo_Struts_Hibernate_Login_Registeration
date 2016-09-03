@@ -5,13 +5,21 @@
 
 <struts>
 	<package name="Demo_Spring_Struts_Hibernate" extends="struts-default">
+
+		<!-- register action -->
 		<action name="login" class="com.taylosweeft.action.LoginAction">
 			<result name="success">/loginsucess.jsp</result>
 			<result name="fail">/loginfail.jsp</result>
 		</action>
-		<action name="register" class="com.taylosweeft.action.LoginAction"
+		<action name="registerpage" class="com.taylosweeft.action.LoginAction"
 			method="register">
 			<result name="register">/register.jsp</result>
+		</action>
+
+		<!-- register action -->
+		<action name="register" class="com.taylosweeft.action.RegisterAction">
+			<result name="success">/loginsucess.jsp</result>
+			<result name="fail">/registerfail.jsp</result>
 		</action>
 	</package>
 </struts>

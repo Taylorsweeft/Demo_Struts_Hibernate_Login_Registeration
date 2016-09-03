@@ -11,7 +11,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>My JSP 'logined.jsp' starting page</title>
+<title>Login Success</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -25,7 +25,9 @@
 </head>
 
 <body>
-	Login Sucess!
-	<br>
+	<center>
+		Login Sucess! <br>
+	</center>
+
 </body>
 </html>

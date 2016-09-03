@@ -1,11 +1,7 @@
 package com.taylosweeft.dao.impl;
 
-import java.util.List;
-
 import org.hibernate.Criteria;
 import org.hibernate.Session;
-import org.hibernate.criterion.Expression;
-
 import org.hibernate.criterion.Restrictions;
 
 import com.taylosweeft.dao.Userdao;
@@ -14,39 +10,43 @@ import com.taylosweeft.util.HibernateUtil;
 
 public class UserdaoImpl implements Userdao {
 
-	public void addUser(User u) {
+	public void addUser(User u){
 		// System.out.println(u.getUsername() + " " + u.geteMail());
-		Session s = HibernateUtil.getSession();
-		s.save(u);
-
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		session.save(u);
+		System.out.println("saveruser");
+		session.getTransaction().commit();
 	}
 
-	public boolean userExit(String username) {
-		System.out.println(username);
-		Session session = HibernateUtil.getSession();
+	@SuppressWarnings("deprecation")
+	public boolean userExit(User u) {
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
 		Criteria criteria = session.createCriteria(User.class);
-		criteria.add(Restrictions.eq("username", username));
-		if (criteria.list().size() > 0) {
-			System.out.println("user exit");
+		criteria.add(Restrictions.eq("username", u.getUsername()));
+		System.out.println("criteria.list().size()" + criteria.list().size());
+		if (criteria.list().size() == 0) {
+			session.getTransaction().commit();
 			return false;
 		}
 		session.getTransaction().commit();
 		return true;
 	}
 
+	@SuppressWarnings("deprecation")
 	public boolean login(User u) {
-		Session session = HibernateUtil.getSession();
-		Criteria criteria = session
-				.createCriteria(com.taylosweeft.model.User.class);
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		Criteria criteria = session.createCriteria(User.class);
 		criteria.add(Restrictions.eq("username", u.getUsername()));
 		criteria.add(Restrictions.eq("password", u.getPassword()));
-		List p = criteria.list();
-		System.out.println("size" + p.size());
 		if (criteria.list().size() > 0) {
-			System.out.println("login success");
+			// System.out.println("login success" + criteria.list().size());
 			return true;
 
 		}
+		// System.out.println("login fail" + criteria.list().size());
 		session.getTransaction().commit();
 		return false;
 	}

@@ -17,12 +17,14 @@ public class UserServiceImpl implements UserService {
 	}
 
 	public boolean exists(User u) throws Exception {
-
-		return userdao.userExit(u.getUsername());
+		return userdao.userExit(u);
 	}
 
 	public void add(User u) throws Exception {
 		userdao.addUser(u);
 	}
 
+	public boolean login(User u) throws Exception {
+		return userdao.login(u);
+	}
 }
